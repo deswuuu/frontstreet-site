@@ -6,7 +6,15 @@
   <title>Front Street Smile Dental | Downtown Toronto Dentist</title>
   <meta name="description" content="Trusted dental care at 363 Front St W, Toronto. General, cosmetic, implants & emergency dentistry. Rated 4.8 stars on Google. Book today." />
 
-  <!-- Tailwind CDN with custom config -->
+  <!-- Preconnect to external origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://frontstreetsmile.ca" />
+
+  <!-- Preload LCP hero image -->
+  <link rel="preload" as="image" href="https://frontstreetsmile.ca/wp-content/uploads/2024/05/FrontStreetDentalSmile_G007-scaled.jpg" fetchpriority="high" />
+
+  <!-- Tailwind CDN with custom config (must remain synchronous) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -30,7 +38,8 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
 
   <!--
     NO custom <style> block with opacity:0.
@@ -150,7 +159,11 @@
             src="https://frontstreetsmile.ca/wp-content/uploads/2024/05/FrontStreetDentalSmile_G007-scaled.jpg"
             alt="Front Street Smile Dental clinic interior — modern, welcoming dental office in downtown Toronto"
             class="w-full h-full object-cover"
+            width="600"
+            height="750"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
         </div>
         <!-- Floating card: emergency -->
@@ -231,6 +244,10 @@
             src="https://frontstreetsmile.ca/wp-content/uploads/2017/07/image04-free-img.jpg"
             alt="Front Street Smile Dental clinic interior"
             class="w-full h-full object-cover"
+            width="480"
+            height="640"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <!-- Gold offset border -->
@@ -389,6 +406,10 @@
             src="https://frontstreetsmile.ca/wp-content/uploads/2024/03/Dr_Tamara_Mohammed_02.jpg"
             alt="Dr. Tamara Mohammed, Dentist and Owner of Front Street Smile Dental"
             class="w-full h-full object-cover object-top"
+            width="480"
+            height="640"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <!-- Credential badge — bottom right -->
@@ -576,7 +597,7 @@
 
     <div class="text-center mb-16">
       <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-4" style="color:#c9a45a;">Find Us</p>
-      <h2 class="font-semibold leading-tight mb-4" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">Come visit us.</h2>
+      <h2 class="font-semibold leading-tight mb-4" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">Come visit us!</h2>
       <div class="mx-auto" style="width:44px;height:2.5px;background:#c9a45a;"></div>
     </div>
 
@@ -743,9 +764,9 @@
         <ul class="flex flex-col gap-3">
           <li><a href="tel:+16473513388" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">(647) 351-3388</a></li>
           <li><a href="/cdn-cgi/l/email-protection#b4dddad2dbf4d2c6dbdac0c7c0c6d1d1c0c7d9ddd8d19ad7d5" class="font-medium text-base hover:underline" style="color:#1a2b3c;"><span class="__cf_email__" data-cfemail="4e272028210e283c21203a3d3a3c2b2b3a3d2327222b602d2f">[email&#160;protected]</span></a></li>
-          <li><a href="https://maps.app.goo.gl/nJF1cCb6cpuqLqRZA" target="_blank" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">363 Front St W, Toronto</a></li>
-          <li><a href="https://www.instagram.com/frontstreetsmile/" target="_blank" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Instagram</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61560026218164" target="_blank" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Facebook</a></li>
+          <li><a href="https://maps.app.goo.gl/nJF1cCb6cpuqLqRZA" target="_blank" rel="noopener" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">363 Front St W, Toronto</a></li>
+          <li><a href="https://www.instagram.com/frontstreetsmile/" target="_blank" rel="noopener" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61560026218164" target="_blank" rel="noopener" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Facebook</a></li>
         </ul>
       </div>
 
