@@ -9,7 +9,11 @@
   <!-- Preconnect to external origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
   <link rel="dns-prefetch" href="https://frontstreetsmile.ca" />
+
+  <!-- Preload Tailwind CDN script so it starts downloading ASAP (still executes synchronously) -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script" />
 
   <!-- Preload LCP hero image -->
   <link rel="preload" as="image" href="https://frontstreetsmile.ca/wp-content/uploads/2024/05/FrontStreetDentalSmile_G007-scaled.jpg" fetchpriority="high" />
@@ -47,6 +51,25 @@
     never gets revealed because IntersectionObserver doesn't fire in the iframe.
     All animation is handled purely via JS className toggling below.
   -->
+  <!-- Critical: size-adjust fallback to minimize reflow when web fonts swap in -->
+  <style>
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 400 600;
+      font-display: swap;
+      src: local('Georgia');
+      size-adjust: 105%;
+    }
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 300 600;
+      font-display: swap;
+      src: local('Arial');
+      size-adjust: 96%;
+    }
+  </style>
 </head>
 <body class="bg-white font-body" style="font-family:'DM Sans',sans-serif; -webkit-font-smoothing:antialiased;color:#1a2b3c">
 
@@ -597,7 +620,7 @@
 
     <div class="text-center mb-16">
       <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-4" style="color:#c9a45a;">Find Us</p>
-      <h2 class="font-semibold leading-tight mb-4" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">Come visit us!</h2>
+      <h2 class="font-semibold leading-tight mb-4" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">Come visit us.</h2>
       <div class="mx-auto" style="width:44px;height:2.5px;background:#c9a45a;"></div>
     </div>
 
@@ -783,7 +806,7 @@
 <!-- ============================================================
      JAVASCRIPT — no dependency on custom CSS classes
 ============================================================ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" async src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ---- Sticky header shadow ---- */
   const hdr = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
