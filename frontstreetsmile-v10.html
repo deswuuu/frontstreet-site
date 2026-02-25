@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Front Street Smile Dental | Downtown Toronto Dentist</title>
+  <meta name="description" content="Trusted dental care at 363 Front St W, Toronto. General, cosmetic, implants & emergency dentistry. Rated 4.8 stars on Google. Book today." />
+
+  <!-- Tailwind CDN with custom config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:      '#1a2b3c',
+            'navy-lt': '#243650',
+            gold:      '#c9a45a',
+            'gold-lt': '#dbb96e',
+            'gold-bg': '#fdf8ee',
+            ivory:     '#faf7f2',
+            cream:     '#f0ebe0',
+            cborder:   '#e5ddd0',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body:    ['"DM Sans"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!--
+    NO custom <style> block with opacity:0.
+    Tailwind Play sandboxes <style> tags — any class starting hidden
+    never gets revealed because IntersectionObserver doesn't fire in the iframe.
+    All animation is handled purely via JS className toggling below.
+  -->
+</head>
+<body class="bg-white font-body" style="font-family:'DM Sans',sans-serif; -webkit-font-smoothing:antialiased;color:#1a2b3c">
+
+
+<!-- ============================================================
+     STICKY HEADER
+============================================================ -->
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b transition-shadow duration-300" style="border-color:#e5ddd0">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="flex items-center justify-between h-[72px] gap-8">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 flex-shrink-0" aria-label="Front Street Smile Dental home">
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:#1a2b3c">
+          <svg class="w-5 h-5" style="fill:#c9a45a;" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C9.24 2 7 4.24 7 7c0 1.7.57 3.26 1.53 4.44L10 16h4l1.47-4.56C16.43 10.26 17 8.7 17 7c0-2.76-2.24-5-5-5zm-1.5 16-.45 2.25C9.83 21.24 10.85 22 12 22s2.17-.76 1.95-1.75L13.5 18h-3z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="font-display font-semibold text-[17px] leading-tight" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Front Street Smile</div>
+          <div class="font-body text-[10px] text-gray-400 tracking-widest uppercase">Dental · Toronto</div>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-9" aria-label="Main navigation">
+        <a href="#why"          class="text-sm text-gray-500 hover:text-slate-900 transition-colors">About</a>
+        <a href="#services"     class="text-sm text-gray-500 hover:text-slate-900 transition-colors">Services</a>
+        <a href="#team"         class="text-sm text-gray-500 hover:text-slate-900 transition-colors">Our Team</a>
+        <a href="#testimonials" class="text-sm text-gray-500 hover:text-slate-900 transition-colors">Reviews</a>
+        <a href="#contact"      class="text-sm text-gray-500 hover:text-slate-900 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="tel:+16473513388" class="flex items-center gap-2 text-sm font-medium" style="color:#1a2b3c">
+          <svg class="w-4 h-4 flex-shrink-0" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          (647) 351-3388
+        </a>
+        <a href="#contact" class="text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-px" style="background:#c9a45a;color:#1a2b3c">
+          Book Appointment
+        </a>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="lg:hidden p-1" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" style="color:#1a2b3c">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div id="mobileDrawer" class="hidden fixed top-[72px] left-0 right-0 z-40 bg-white border-b shadow-xl px-8 py-6 flex-col gap-2" style="border-color:#e5ddd0">
+  <a href="#why"          onclick="toggleMenu()" class="text-base py-3 border-b block" style="border-color:#f0ebe0;color:#1a2b3c">About</a>
+  <a href="#services"     onclick="toggleMenu()" class="text-base py-3 border-b block" style="border-color:#f0ebe0;color:#1a2b3c">Services</a>
+  <a href="#team"         onclick="toggleMenu()" class="text-base py-3 border-b block" style="border-color:#f0ebe0;color:#1a2b3c">Our Team</a>
+  <a href="#testimonials" onclick="toggleMenu()" class="text-base py-3 border-b block" style="border-color:#f0ebe0;color:#1a2b3c">Reviews</a>
+  <a href="#contact"      onclick="toggleMenu()" class="text-base py-3 border-b block" style="border-color:#f0ebe0;color:#1a2b3c">Contact</a>
+  <a href="tel:+16473513388" class="mt-4 text-center border-2 font-medium py-3 rounded-full block" style="border-color:#1a2b3c;color:#1a2b3c">(647) 351-3388</a>
+  <a href="#contact" onclick="toggleMenu()" class="text-center font-medium py-3 rounded-full block mt-2" style="background:#c9a45a;color:#1a2b3c">Book Appointment</a>
+</div>
+
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero" class="pt-[72px] min-h-screen flex items-center overflow-hidden" style="background:#faf7f2;">
+  <div class="max-w-6xl mx-auto px-8 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-20">
+
+      <!-- Left: Content -->
+      <div>
+        <!-- CDCP badge -->
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-7 border" style="background:#fdf8ee; border-color:rgba(201,164,90,0.3);">
+          <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#c9a45a;"></span>
+          <span class="text-xs font-medium" style="color:#92651a;">Now accepting CDCP · No referral needed</span>
+        </div>
+
+        <h1 class="font-semibold leading-[1.1] tracking-tight mb-5" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(40px,5vw,64px);color:#1a2b3c">
+          Downtown Toronto's<br>dental home,<br>
+          <span style="color:#c9a45a; font-style:italic;">built around you.</span>
+        </h1>
+
+        <p class="text-lg text-gray-600 font-light leading-relaxed max-w-md mb-10">
+          Compassionate, complete dental care steps from Front Street. Whether it's your first visit or a full smile transformation — we make every appointment feel effortless.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-3">
+          <a href="#contact" class="inline-flex items-center gap-2 font-medium px-7 py-3.5 rounded-full transition-all duration-200" style="background:#c9a45a;color:#1a2b3c">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Book an Appointment
+          </a>
+          <a href="tel:+16473513388" class="inline-flex items-center gap-2 border-2 hover:bg-slate-900 hover:text-white font-medium px-7 py-3.5 rounded-full transition-all duration-200" style="border-color:#1a2b3c;color:#1a2b3c">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Call Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Photo -->
+      <div class="relative hidden lg:block">
+        <div class="rounded-3xl overflow-hidden shadow-2xl" style="aspect-ratio:4/5;">
+          <img
+            src="https://frontstreetsmile.ca/wp-content/uploads/2024/05/FrontStreetDentalSmile_G007-scaled.jpg"
+            alt="Front Street Smile Dental clinic interior — modern, welcoming dental office in downtown Toronto"
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+        <!-- Floating card: emergency -->
+        <div class="absolute bg-white rounded-2xl px-5 py-4 shadow-xl" style="bottom:-16px; left:-40px;">
+          <div class="text-xs text-gray-400 uppercase tracking-widest mb-1">Emergency Care</div>
+          <div class="font-semibold text-2xl leading-none" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Walk-in</div>
+          <div class="text-xs text-gray-500 mt-1">Seen as soon as possible</div>
+        </div>
+        <!-- Floating card: CDCP -->
+        <div class="absolute bg-white rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3" style="top:40px; right:-24px;">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(201,164,90,0.15);">
+            <svg class="w-5 h-5" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="text-sm font-semibold" style="color:#1a2b3c">CDCP Accepted</div>
+            <div class="text-xs text-gray-400">Canadian Dental Care Plan</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TRUST STRIP
+     4 distinct facts — no headings, no repetition of hero content
+============================================================ -->
+<section aria-label="Trust indicators" style="background:#1a2b3c;">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4" style="border-top:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08);">
+
+      <div class="flex items-center gap-4 px-6 py-7" style="border-right:1px solid rgba(255,255,255,0.08);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(201,164,90,0.15);">
+          <svg class="w-5 h-5" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+        </div>
+        <span class="text-white font-medium text-sm leading-snug">Rated 4.8 stars on Google</span>
+      </div>
+
+      <div class="flex items-center gap-4 px-6 py-7" style="border-right:1px solid rgba(255,255,255,0.08);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(201,164,90,0.15);">
+          <svg class="w-5 h-5" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <span class="text-white font-medium text-sm leading-snug">20+ years of dental experience</span>
+      </div>
+
+      <div class="flex items-center gap-4 px-6 py-7" style="border-right:1px solid rgba(255,255,255,0.08);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(201,164,90,0.15);">
+          <svg class="w-5 h-5" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <span class="text-white font-medium text-sm leading-snug">Most insurance plans accepted</span>
+      </div>
+
+      <div class="flex items-center gap-4 px-6 py-7">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(201,164,90,0.15);">
+          <svg class="w-5 h-5" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <span class="text-white font-medium text-sm leading-snug">Emergency walk-ins welcome</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY CHOOSE US
+============================================================ -->
+<section id="why" class="py-28" style="background:#faf7f2;">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+
+      <!-- Image (desktop only) -->
+      <div class="relative hidden lg:block">
+        <div class="rounded-2xl overflow-hidden shadow-2xl" style="aspect-ratio:3/4;">
+          <img
+            src="https://frontstreetsmile.ca/wp-content/uploads/2017/07/image04-free-img.jpg"
+            alt="Front Street Smile Dental clinic interior"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <!-- Gold offset border -->
+        <div class="absolute rounded-2xl pointer-events-none" style="top:-16px;left:-16px;right:32px;bottom:32px;border:2px solid rgba(201,164,90,0.25);z-index:-1;"></div>
+      </div>
+
+      <!-- Content -->
+      <div>
+        <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-4" style="color:#c9a45a;">Why Choose Us</p>
+        <h2 class="font-semibold leading-tight mb-4" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">
+          Dentistry designed<br>around <span style="font-style:italic;">your comfort.</span>
+        </h2>
+        <div class="mb-12" style="width:44px;height:2.5px;background:#c9a45a;"></div>
+
+        <div class="flex flex-col">
+
+          <div class="flex gap-6 pb-9" style="border-bottom:1px solid #e5ddd0;">
+            <div class="font-semibold leading-none flex-shrink-0 w-8" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:40px; color:rgba(201,164,90,0.25);">01</div>
+            <div>
+              <h3 class="font-semibold text-xl mb-2" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Right in the Heart of Downtown</h3>
+              <p class="text-gray-600 text-base font-light leading-relaxed">Located at 363 Front St W — steps from Union Station and the waterfront. Easy to reach before work, during lunch, or on the way home.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 py-9" style="border-bottom:1px solid #e5ddd0;">
+            <div class="font-semibold leading-none flex-shrink-0 w-8" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:40px; color:rgba(201,164,90,0.25);">02</div>
+            <div>
+              <h3 class="font-semibold text-xl mb-2" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">State-of-the-Art, Mercury-Free Care</h3>
+              <p class="text-gray-600 text-base font-light leading-relaxed">Modern digital technology and composite (amalgam-free) fillings so your care is cleaner, safer, and as comfortable as possible.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 py-9" style="border-bottom:1px solid #e5ddd0;">
+            <div class="font-semibold leading-none flex-shrink-0 w-8" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:40px; color:rgba(201,164,90,0.25);">03</div>
+            <div>
+              <h3 class="font-semibold text-xl mb-2" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Personalized Treatment — Every Visit</h3>
+              <p class="text-gray-600 text-base font-light leading-relaxed">Dr. Mohammed takes the time to understand your concerns and builds a plan tailored to you. No rushed appointments, no cookie-cutter approach.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-6 pt-9">
+            <div class="font-semibold leading-none flex-shrink-0 w-8" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:40px; color:rgba(201,164,90,0.25);">04</div>
+            <div>
+              <h3 class="font-semibold text-xl mb-2" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Welcoming for Every Age and Ability</h3>
+              <p class="text-gray-600 text-base font-light leading-relaxed">Fully wheelchair-accessible. Welcoming for children, adults, and seniors. We accommodate family bookings and send automated reminders.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services" class="py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-8">
+
+    <div class="text-center mb-16">
+      <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-4" style="color:#c9a45a;">Our Services</p>
+      <h2 class="font-semibold leading-tight mb-5" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">
+        All your dental needs<br>under one roof.
+      </h2>
+      <p class="text-gray-600 text-lg font-light leading-relaxed max-w-xl mx-auto">
+        Comprehensive care for patients of every age — from routine check-ups to complex restorations.
+      </p>
+      <div class="mx-auto mt-6" style="width:44px;height:2.5px;background:#c9a45a;"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Service card macro — repeated 6× -->
+      <div class="group rounded-2xl p-10 border border-transparent transition-all duration-300 cursor-default" style="background:#faf7f2;" onmouseover="this.style.background='#fff';this.style.borderColor='rgba(201,164,90,0.4)';" onmouseout="this.style.background='#faf7f2';this.style.borderColor='transparent';">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:#1a2b3c;">
+          <svg class="w-6 h-6" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-3" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Family Dentistry</h3>
+        <p class="text-gray-600 text-sm font-light leading-relaxed mb-5">Cleanings, exams, fillings, crowns, and preventive care for all ages — handled with patience and genuine care every visit.</p>
+        <span class="inline-flex items-center gap-1.5 text-xs font-semibold" style="color:#c9a45a;">Learn more <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <div class="group rounded-2xl p-10 border border-transparent transition-all duration-300 cursor-default" style="background:#faf7f2;" onmouseover="this.style.background='#fff';this.style.borderColor='rgba(201,164,90,0.4)';" onmouseout="this.style.background='#faf7f2';this.style.borderColor='transparent';">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:#1a2b3c;">
+          <svg class="w-6 h-6" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3l14 9-14 9V3z"/></svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-3" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Cosmetic Dentistry</h3>
+        <p class="text-gray-600 text-sm font-light leading-relaxed mb-5">Teeth whitening, porcelain veneers, bonding, and bridges — crafted to look completely natural and last for years.</p>
+        <span class="inline-flex items-center gap-1.5 text-xs font-semibold" style="color:#c9a45a;">Learn more <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <div class="group rounded-2xl p-10 border border-transparent transition-all duration-300 cursor-default" style="background:#faf7f2;" onmouseover="this.style.background='#fff';this.style.borderColor='rgba(201,164,90,0.4)';" onmouseout="this.style.background='#faf7f2';this.style.borderColor='transparent';">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:#1a2b3c;">
+          <svg class="w-6 h-6" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-3" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Dental Implants</h3>
+        <p class="text-gray-600 text-sm font-light leading-relaxed mb-5">Titanium implants that look, feel, and function like natural teeth. Free consultation to determine candidacy — done entirely in our office.</p>
+        <span class="inline-flex items-center gap-1.5 text-xs font-semibold" style="color:#c9a45a;">Learn more <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <div class="group rounded-2xl p-10 border border-transparent transition-all duration-300 cursor-default" style="background:#faf7f2;" onmouseover="this.style.background='#fff';this.style.borderColor='rgba(201,164,90,0.4)';" onmouseout="this.style.background='#faf7f2';this.style.borderColor='transparent';">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:#1a2b3c;">
+          <svg class="w-6 h-6" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-3" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Emergency Dentistry</h3>
+        <p class="text-gray-600 text-sm font-light leading-relaxed mb-5">We accept walk-in emergency patients and will see you as soon as possible — treatment may be provided the same day.</p>
+        <span class="inline-flex items-center gap-1.5 text-xs font-semibold" style="color:#c9a45a;">Learn more <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <div class="group rounded-2xl p-10 border border-transparent transition-all duration-300 cursor-default" style="background:#faf7f2;" onmouseover="this.style.background='#fff';this.style.borderColor='rgba(201,164,90,0.4)';" onmouseout="this.style.background='#faf7f2';this.style.borderColor='transparent';">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:#1a2b3c;">
+          <svg class="w-6 h-6" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-3" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Sedation Dentistry</h3>
+        <p class="text-gray-600 text-sm font-light leading-relaxed mb-5">Nitrous oxide (laughing gas) helps even the most anxious patients relax safely — no side effects, you can drive yourself home after.</p>
+        <span class="inline-flex items-center gap-1.5 text-xs font-semibold" style="color:#c9a45a;">Learn more <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+      <div class="group rounded-2xl p-10 border border-transparent transition-all duration-300 cursor-default" style="background:#faf7f2;" onmouseover="this.style.background='#fff';this.style.borderColor='rgba(201,164,90,0.4)';" onmouseout="this.style.background='#faf7f2';this.style.borderColor='transparent';">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:#1a2b3c;">
+          <svg class="w-6 h-6" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-3" style="font-family:'Cormorant Garamond',Georgia,serif;color:#1a2b3c">Pediatric &amp; Senior Care</h3>
+        <p class="text-gray-600 text-sm font-light leading-relaxed mb-5">Patient, gentle appointments for children with prizes for good visits. Accessible, affordable care for seniors — because every smile matters.</p>
+        <span class="inline-flex items-center gap-1.5 text-xs font-semibold" style="color:#c9a45a;">Learn more <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></span>
+      </div>
+
+    </div>
+
+    <!-- Services CTA -->
+    <div class="text-center mt-14">
+      <a href="#contact" class="inline-flex items-center gap-2 text-white font-medium px-8 py-4 rounded-full transition-all duration-200" style="background:#1a2b3c;">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Book Your Visit
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MEET THE DENTIST — photo left, content right
+     No CTA here — trust section, not a conversion moment
+============================================================ -->
+<section id="team" class="py-28" style="background:#faf7f2;">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+      <!-- Photo left -->
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden shadow-2xl" style="aspect-ratio:3/4;">
+          <img
+            src="https://frontstreetsmile.ca/wp-content/uploads/2024/03/Dr_Tamara_Mohammed_02.jpg"
+            alt="Dr. Tamara Mohammed, Dentist and Owner of Front Street Smile Dental"
+            class="w-full h-full object-cover object-top"
+          />
+        </div>
+        <!-- Credential badge — bottom right -->
+        <div class="absolute bg-white rounded-2xl px-6 py-5 shadow-xl" style="bottom:-24px; right:-24px; border-left:4px solid #c9a45a;">
+          <div class="text-xs text-gray-400 uppercase tracking-widest mb-1.5">Credentials</div>
+          <div class="text-sm font-semibold" style="color:#1a2b3c">DDS — University of Toronto</div>
+          <div class="text-xs text-gray-500 mt-1">ODA Member · AAID Member</div>
+        </div>
+      </div>
+
+      <!-- Content right -->
+      <div>
+        <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-4" style="color:#c9a45a;">Meet Your Dentist</p>
+        <h2 class="font-semibold leading-tight mb-2" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">Dr. Tamara Mohammed</h2>
+        <p class="text-base font-medium mb-7" style="color:#c9a45a;">Dentist &amp; Clinic Owner</p>
+
+        <p class="text-gray-700 text-base font-light leading-relaxed mb-5">
+          With over 20 years of dental experience, Dr. Mohammed has dedicated her career to bringing patients genuine, lasting results in a warm and caring environment. She graduated with honours with a Doctor of Dental Surgery degree from the University of Baghdad, and later earned her Canadian DDS from the University of Toronto.
+        </p>
+        <p class="text-gray-700 text-base font-light leading-relaxed mb-10">
+          What drives her most: seeing a patient who was once in pain walk out smiling with confidence. She takes the time to listen, explains clearly, and treats every patient the way she would treat her own family.
+        </p>
+
+        <div class="flex flex-col gap-3.5">
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <span class="text-gray-700 text-sm">DDS with Honours — University of Baghdad (2001)</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <span class="text-gray-700 text-sm">Canadian DDS — University of Toronto</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <span class="text-gray-700 text-sm">Certified in Dental Implants — Ti-Max Course</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 flex-shrink-0" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <span class="text-gray-700 text-sm">Ontario Dental Association &amp; AAID Member</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIALS — Card Carousel
+     5 cards, 3 visible, JS-driven. No italic text.
+============================================================ -->
+<section id="testimonials" class="py-28 overflow-hidden" style="background:#1a2b3c;">
+  <div class="max-w-6xl mx-auto px-8">
+
+    <div class="text-center mb-16">
+      <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-4" style="color:#c9a45a;">Patient Reviews</p>
+      <h2 class="font-semibold text-white leading-tight mb-4" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);">What our patients say.</h2>
+      <p class="text-gray-400 text-base font-light">Rated 4.8 stars on Google — here's what real patients have shared.</p>
+      <div class="mx-auto mt-6" style="width:44px;height:2.5px;background:#c9a45a;"></div>
+    </div>
+
+    <!-- Carousel: mask fades left/right edges -->
+    <div style="-webkit-mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%); mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%); overflow:hidden;">
+      <div id="carouselTrack" style="display:flex; align-items:stretch; gap:1.5rem; transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);">
+
+        <!-- Card 1 -->
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
+          <div>
+            <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
+            <p class="text-white text-base font-light leading-relaxed">
+              "I've always been nervous about dentists, but Dr. Mohammed put me completely at ease. She explained every step patiently and was so gentle. I left feeling good about my teeth for the first time in years."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-lg flex-shrink-0" style="background:rgba(201,164,90,0.2); border:1.5px solid rgba(201,164,90,0.4); color:#c9a45a; font-family:'Cormorant Garamond',serif;">S</div>
+            <div>
+              <div class="text-white text-sm font-semibold">Sarah K.</div>
+              <div class="text-gray-500 text-xs mt-0.5">Google Review</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
+          <div>
+            <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
+            <p class="text-white text-base font-light leading-relaxed">
+              "We bring the whole family here — kids included. The staff are patient, the clinic is spotless and modern, and appointments run on time. Rare to actually look forward to going to the dentist."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-lg flex-shrink-0" style="background:rgba(201,164,90,0.2); border:1.5px solid rgba(201,164,90,0.4); color:#c9a45a; font-family:'Cormorant Garamond',serif;">M</div>
+            <div>
+              <div class="text-white text-sm font-semibold">Michael T.</div>
+              <div class="text-gray-500 text-xs mt-0.5">Google Review</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 (center / active) -->
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" id="card-active" style="width:calc(33.333% - 1rem); background:rgba(201,164,90,0.10); border:1px solid rgba(201,164,90,0.35);">
+          <div>
+            <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
+            <p class="text-white text-base font-light leading-relaxed">
+              "Had a dental emergency on a Thursday morning — they got me in as soon as possible the same day. The team was compassionate and quick. So grateful this clinic is in the neighbourhood."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-lg flex-shrink-0" style="background:rgba(201,164,90,0.2); border:1.5px solid rgba(201,164,90,0.4); color:#c9a45a; font-family:'Cormorant Garamond',serif;">A</div>
+            <div>
+              <div class="text-white text-sm font-semibold">Aisha R.</div>
+              <div class="text-gray-500 text-xs mt-0.5">Google Review</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
+          <div>
+            <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
+            <p class="text-white text-base font-light leading-relaxed">
+              "Friendly, professional, and genuinely caring. Dr. Mohammed took the time to explain my options clearly and never made me feel rushed. The whole team made what's usually stressful feel easy."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-lg flex-shrink-0" style="background:rgba(201,164,90,0.2); border:1.5px solid rgba(201,164,90,0.4); color:#c9a45a; font-family:'Cormorant Garamond',serif;">J</div>
+            <div>
+              <div class="text-white text-sm font-semibold">James L.</div>
+              <div class="text-gray-500 text-xs mt-0.5">Google Review</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
+          <div>
+            <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
+            <p class="text-white text-base font-light leading-relaxed">
+              "I had avoided the dentist for years. No judgement here — just kind, thorough care. The staff at the front desk are warm and welcoming every single visit. I actually keep my appointments now."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-lg flex-shrink-0" style="background:rgba(201,164,90,0.2); border:1.5px solid rgba(201,164,90,0.4); color:#c9a45a; font-family:'Cormorant Garamond',serif;">P</div>
+            <div>
+              <div class="text-white text-sm font-semibold">Priya N.</div>
+              <div class="text-gray-500 text-xs mt-0.5">Google Review</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Arrow + dot controls -->
+    <div class="flex items-center justify-center gap-5 mt-12">
+      <button onclick="carouselPrev()" aria-label="Previous review" class="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-200" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.14);" onmouseover="this.style.background='#c9a45a';this.style.color='#1a2b3c';" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='white';">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+
+      <div class="flex gap-2 items-center" id="carouselDots" role="tablist" aria-label="Review navigation">
+        <button onclick="goTo(0)" role="tab" aria-label="Go to review set 1" class="h-1.5 rounded-full transition-all duration-300" style="width:1.5rem; background:#c9a45a;"></button>
+        <button onclick="goTo(1)" role="tab" aria-label="Go to review set 2" class="h-1.5 rounded-full transition-all duration-300" style="width:0.5rem; background:rgba(255,255,255,0.2);"></button>
+        <button onclick="goTo(2)" role="tab" aria-label="Go to review set 3" class="h-1.5 rounded-full transition-all duration-300" style="width:0.5rem; background:rgba(255,255,255,0.2);"></button>
+      </div>
+
+      <button onclick="carouselNext()" aria-label="Next review" class="w-11 h-11 rounded-full flex items-center justify-center text-white transition-all duration-200" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.14);" onmouseover="this.style.background='#c9a45a';this.style.color='#1a2b3c';" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.color='white';">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="https://maps.app.goo.gl/nJF1cCb6cpuqLqRZA" target="_blank" rel="noopener" class="text-xs text-gray-500 hover:text-yellow-600 transition-colors">View all reviews on Google Maps →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT + MAP — side by side
+============================================================ -->
+<section id="contact" class="py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-8">
+
+    <div class="text-center mb-16">
+      <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-4" style="color:#c9a45a;">Find Us</p>
+      <h2 class="font-semibold leading-tight mb-4" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">Come visit us.</h2>
+      <div class="mx-auto" style="width:44px;height:2.5px;background:#c9a45a;"></div>
+    </div>
+
+    <!-- Two-column: info left, map right -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Left: contact info -->
+      <div>
+        <p class="text-gray-600 text-base font-light leading-relaxed mb-10">
+          363 Front St W, Toronto, ON M5V 3S8<br>
+          Steps from Union Station and the waterfront.
+        </p>
+
+        <div class="flex flex-col gap-8 mb-10">
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#fdf8ee; border:1px solid rgba(201,164,90,0.2);">
+              <svg class="w-4 h-4" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-widest text-gray-400 mb-1">Phone</div>
+              <a href="tel:+16473513388" class="font-medium text-base hover:underline" style="color:#1a2b3c;">(647) 351-3388</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#fdf8ee; border:1px solid rgba(201,164,90,0.2);">
+              <svg class="w-4 h-4" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-widest text-gray-400 mb-1">Email</div>
+              <a href="/cdn-cgi/l/email-protection#87eee9e1e8c7e1f5e8e9f3f4f3f5e2e2f3f4eaeeebe2a9e4e6" class="font-medium text-base hover:underline" style="color:#1a2b3c;"><span class="__cf_email__" data-cfemail="89e0e7efe6c9effbe6e7fdfafdfbececfdfae4e0e5eca7eae8">[email&#160;protected]</span></a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#fdf8ee; border:1px solid rgba(201,164,90,0.2);">
+              <svg class="w-4 h-4" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-widest text-gray-400 mb-2">Hours</div>
+              <table class="text-sm text-gray-700" style="border-collapse:collapse;">
+                <tr><td class="pr-8 py-1 text-gray-500">Monday – Friday</td><td class="font-medium py-1" style="color:#1a2b3c">10:00 AM – 7:00 PM</td></tr>
+                <tr><td class="pr-8 py-1 text-gray-500">Saturday</td><td class="font-medium py-1" style="color:#1a2b3c">10:00 AM – 3:00 PM</td></tr>
+                <tr><td class="pr-8 py-1 text-gray-500">Sunday</td><td class="font-medium py-1" style="color:#1a2b3c">Closed</td></tr>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="#" class="inline-flex items-center gap-2 font-medium px-7 py-3.5 rounded-full transition-all duration-200" style="background:#c9a45a;color:#1a2b3c">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Book Appointment
+          </a>
+          <a href="tel:+16473513388" class="inline-flex items-center gap-2 border-2 hover:bg-slate-900 hover:text-white font-medium px-7 py-3.5 rounded-full transition-all duration-200" style="border-color:#1a2b3c;color:#1a2b3c">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Call Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Map -->
+      <div>
+        <div class="rounded-2xl overflow-hidden shadow-lg" style="aspect-ratio:1/1; border:1px solid #e5ddd0;">
+          <!--
+            PRODUCTION: replace the div below with:
+            <iframe
+              src="https://www.google.com/maps/embed/v1/place?key=YOUR_KEY&q=363+Front+St+W+Toronto+ON"
+              width="100%" height="100%" style="border:0;display:block;" allowfullscreen loading="lazy">
+            </iframe>
+          -->
+          <div class="w-full h-full flex flex-col items-center justify-center gap-4" style="background:#f0ebe0; min-height:400px;">
+            <svg class="w-12 h-12 opacity-25" style="color:#1a2b3c;" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <p class="text-sm text-gray-500">363 Front St W, Toronto, ON</p>
+            <a href="https://maps.app.goo.gl/nJF1cCb6cpuqLqRZA" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 bg-white font-medium text-sm px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-shadow" style="border:1px solid #e5ddd0;color:#1a2b3c">
+              <svg class="w-4 h-4" style="color:#c9a45a;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+              Open in Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FINAL CTA BANNER
+============================================================ -->
+<section class="py-28 relative overflow-hidden" style="background:#1a2b3c;">
+  <!-- Decorative rings -->
+  <div class="absolute rounded-full pointer-events-none" style="top:-100px;left:-100px;width:320px;height:320px;border:1px solid rgba(201,164,90,0.1);"></div>
+  <div class="absolute rounded-full pointer-events-none" style="top:-60px;left:-60px;width:200px;height:200px;border:1px solid rgba(201,164,90,0.1);"></div>
+  <div class="absolute rounded-full pointer-events-none" style="bottom:-100px;right:-100px;width:320px;height:320px;border:1px solid rgba(201,164,90,0.1);"></div>
+  <div class="absolute rounded-full pointer-events-none" style="bottom:-60px;right:-60px;width:200px;height:200px;border:1px solid rgba(201,164,90,0.1);"></div>
+
+  <div class="max-w-6xl mx-auto px-8 text-center relative">
+    <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-5" style="color:#c9a45a;">New Patients Always Welcome</p>
+    <h2 class="font-semibold text-white leading-tight mb-5" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(36px,4vw,54px);">
+      Ready to love your smile?
+    </h2>
+    <p class="text-gray-400 text-lg font-light max-w-md mx-auto mb-12">
+      Book your appointment in minutes. No referral needed.
+    </p>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="#contact" class="inline-flex items-center gap-2 font-medium px-8 py-4 rounded-full transition-all duration-200" style="background:#c9a45a;color:#1a2b3c">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Book an Appointment
+      </a>
+      <a href="tel:+16473513388" class="inline-flex items-center gap-2 font-medium px-8 py-4 rounded-full transition-all duration-200 text-white" style="border:2px solid rgba(255,255,255,0.3);">
+        Call (647) 351-3388
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer style="background:#111d29; padding-top:4rem; padding-bottom:2rem;">
+  <div class="max-w-6xl mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
+
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(201,164,90,0.15);">
+            <svg class="w-4 h-4" style="fill:#c9a45a;" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C9.24 2 7 4.24 7 7c0 1.7.57 3.26 1.53 4.44L10 16h4l1.47-4.56C16.43 10.26 17 8.7 17 7c0-2.76-2.24-5-5-5zm-1.5 16-.45 2.25C9.83 21.24 10.85 22 12 22s2.17-.76 1.95-1.75L13.5 18h-3z"/></svg>
+          </div>
+          <span class="font-semibold text-white text-base" style="font-family:'Cormorant Garamond',Georgia,serif;">Front Street Smile Dental</span>
+        </div>
+        <p class="text-sm leading-relaxed mb-4" style="color:rgba(255,255,255,0.38);">Compassionate dental care in the heart of downtown Toronto. Dr. Mohammed and her team treat every patient like family.</p>
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs" style="background:rgba(201,164,90,0.1);border:1px solid rgba(201,164,90,0.2);color:rgba(201,164,90,0.85);">✓ CDCP Accepted</span>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-[0.12em] mb-5" style="color:rgba(255,255,255,0.4);">Services</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="#services" class="text-sm transition-colors" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">General &amp; Family Dentistry</a></li>
+          <li><a href="#services" class="text-sm transition-colors" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Cosmetic Dentistry</a></li>
+          <li><a href="#services" class="text-sm transition-colors" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Dental Implants</a></li>
+          <li><a href="#services" class="text-sm transition-colors" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Emergency Dentistry</a></li>
+          <li><a href="#services" class="text-sm transition-colors" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Sedation Dentistry</a></li>
+          <li><a href="#services" class="text-sm transition-colors" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Pediatric &amp; Senior Care</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-[0.12em] mb-5" style="color:rgba(255,255,255,0.4);">Clinic</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="#why"          class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">About Us</a></li>
+          <li><a href="#team"         class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Meet Dr. Mohammed</a></li>
+          <li><a href="#testimonials" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Patient Reviews</a></li>
+          <li><a href="#contact"      class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">New Patients</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-[0.12em] mb-5" style="color:rgba(255,255,255,0.4);">Contact</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="tel:+16473513388" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">(647) 351-3388</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#b4dddad2dbf4d2c6dbdac0c7c0c6d1d1c0c7d9ddd8d19ad7d5" class="font-medium text-base hover:underline" style="color:#1a2b3c;"><span class="__cf_email__" data-cfemail="4e272028210e283c21203a3d3a3c2b2b3a3d2327222b602d2f">[email&#160;protected]</span></a></li>
+          <li><a href="https://maps.app.goo.gl/nJF1cCb6cpuqLqRZA" target="_blank" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">363 Front St W, Toronto</a></li>
+          <li><a href="https://www.instagram.com/frontstreetsmile/" target="_blank" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61560026218164" target="_blank" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Facebook</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-3 pt-7" style="border-top:1px solid rgba(255,255,255,0.06);">
+      <p class="text-xs" style="color:rgba(255,255,255,0.22);">© 2025 Front Street Smile Dental. All rights reserved.</p>
+      <p class="text-xs" style="color:rgba(255,255,255,0.22);">363 Front St W, Toronto, ON M5V 3S8</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT — no dependency on custom CSS classes
+============================================================ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ---- Sticky header shadow ---- */
+  const hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    hdr.style.boxShadow = window.scrollY > 10 ? '0 4px 24px rgba(0,0,0,0.08)' : '';
+  }, { passive: true });
+
+  /* ---- Mobile menu ---- */
+  function toggleMenu() {
+    const d = document.getElementById('mobileDrawer');
+    const isHidden = d.classList.contains('hidden');
+    d.classList.toggle('hidden', !isHidden);
+    d.classList.toggle('flex', isHidden);
+  }
+  document.addEventListener('click', e => {
+    const d = document.getElementById('mobileDrawer');
+    const btn = document.getElementById('hamburgerBtn');
+    if (!d.classList.contains('hidden') && !d.contains(e.target) && !btn.contains(e.target)) {
+      d.classList.add('hidden');
+      d.classList.remove('flex');
+    }
+  });
+
+  /* ---- Testimonial Carousel ---- */
+  const track = document.getElementById('carouselTrack');
+  const cards = Array.from(track.querySelectorAll('.t-card'));
+  const dots  = Array.from(document.querySelectorAll('#carouselDots button'));
+  const TOTAL = cards.length;
+  let curr = 0;
+  const GAP = 24; // 1.5rem gap in px
+
+  function isMobile() { return window.innerWidth < 1024; }
+  function getSteps()  { return isMobile() ? TOTAL - 1 : TOTAL - 3; }
+
+  function applyCardWidths() {
+    cards.forEach(c => {
+      if (isMobile()) {
+        // 88vw so the next card peeks ~6vw in from the right
+        c.style.width = Math.round(window.innerWidth * 0.88) + 'px';
+      } else {
+        // Resolve pixel width from the actual track container width
+        // track parent is the mask div; its parent is the max-w-6xl div
+        const containerW = track.parentElement.offsetWidth;
+        const cardPx = Math.floor((containerW - GAP * 2) / 3);
+        c.style.width = cardPx + 'px';
+      }
+      c.style.aspectRatio = '';
+    });
+  }
+
+  // Always read offsetWidth — this forces a synchronous reflow so width is always current
+  function cardStepPx() {
+    return cards[0].offsetWidth + GAP;
+  }
+
+  function updateCarousel(animate) {
+    curr = Math.max(0, Math.min(curr, getSteps()));
+
+    // On mobile: nudge right so active card is centred (half the peek)
+    const offset = isMobile() ? Math.round(window.innerWidth * 0.06) : 0;
+
+    if (animate === false) {
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1)';
+    }
+    track.style.transform = `translateX(${offset}px) translateX(-${curr * cardStepPx()}px)`;
+
+    cards.forEach((c, i) => {
+      const active = isMobile() ? i === curr : i === curr + 1;
+      c.style.background  = active ? 'rgba(201,164,90,0.10)' : 'rgba(255,255,255,0.07)';
+      c.style.borderColor = active ? 'rgba(201,164,90,0.35)' : 'rgba(255,255,255,0.10)';
+      c.style.opacity     = (isMobile() && !active) ? '0.55' : '1';
+    });
+
+    dots.forEach((d, i) => {
+      const inRange = i <= getSteps();
+      d.style.display    = inRange ? 'block' : 'none';
+      d.style.width      = i === curr ? '1.5rem' : '0.5rem';
+      d.style.background = i === curr ? '#c9a45a' : 'rgba(255,255,255,0.2)';
+    });
+  }
+
+  function init() {
+    applyCardWidths();
+    // offsetWidth access here forces layout to complete so cardStepPx() is accurate
+    void cards[0].offsetWidth;
+    curr = Math.min(curr, getSteps());
+    updateCarousel(false);
+    // Re-enable animation on next frame
+    requestAnimationFrame(() => {
+      track.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1)';
+    });
+  }
+
+  function carouselNext() { curr = Math.min(curr + 1, getSteps()); updateCarousel(); }
+  function carouselPrev() { curr = Math.max(curr - 1, 0);           updateCarousel(); }
+  function goTo(i)        { curr = Math.max(0, Math.min(i, getSteps())); updateCarousel(); }
+
+  init();
+
+  let tx = null;
+  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    if (tx === null) return;
+    const dx = e.changedTouches[0].clientX - tx;
+    if (dx < -50) carouselNext();
+    else if (dx > 50) carouselPrev();
+    tx = null;
+  });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(init, 80);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
