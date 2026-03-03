@@ -6,19 +6,7 @@
   <title>Front Street Smile Dental | Downtown Toronto Dentist</title>
   <meta name="description" content="Trusted dental care at 363 Front St W, Toronto. General, cosmetic, implants & emergency dentistry. Rated 4.8 stars on Google. Book today." />
 
-  <!-- Preconnect to external origins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
-  <link rel="dns-prefetch" href="https://frontstreetsmile.ca" />
-
-  <!-- Preload Tailwind CDN script so it starts downloading ASAP (still executes synchronously) -->
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="script" />
-
-  <!-- Preload LCP hero image -->
-  <link rel="preload" as="image" href="https://frontstreetsmile.ca/wp-content/uploads/2024/05/FrontStreetDentalSmile_G007-scaled.jpg" fetchpriority="high" />
-
-  <!-- Tailwind CDN with custom config (must remain synchronous) -->
+  <!-- Tailwind CDN with custom config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -42,8 +30,7 @@
       }
     }
   </script>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!--
     NO custom <style> block with opacity:0.
@@ -163,11 +150,7 @@
             src="https://frontstreetsmile.ca/wp-content/uploads/2024/05/FrontStreetDentalSmile_G007-scaled.jpg"
             alt="Front Street Smile Dental clinic interior — modern, welcoming dental office in downtown Toronto"
             class="w-full h-full object-cover"
-            width="600"
-            height="750"
             loading="eager"
-            fetchpriority="high"
-            decoding="async"
           />
         </div>
         <!-- Floating card: emergency -->
@@ -248,10 +231,6 @@
             src="https://frontstreetsmile.ca/wp-content/uploads/2017/07/image04-free-img.jpg"
             alt="Front Street Smile Dental clinic interior"
             class="w-full h-full object-cover"
-            width="480"
-            height="640"
-            loading="lazy"
-            decoding="async"
           />
         </div>
         <!-- Gold offset border -->
@@ -262,7 +241,7 @@
       <div>
         <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-4" style="color:#c9a45a;">Why Choose Us</p>
         <h2 class="font-semibold leading-tight mb-4" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">
-          Dentistry designed<br>around <span style="font-style:italic;font-size:1.08em;">your comfort.</span>
+          Dentistry designed<br>around <span style="font-style:italic;">your comfort.</span>
         </h2>
         <div class="mb-12" style="width:44px;height:2.5px;background:#c9a45a;"></div>
 
@@ -410,10 +389,6 @@
             src="https://frontstreetsmile.ca/wp-content/uploads/2024/03/Dr_Tamara_Mohammed_02.jpg"
             alt="Dr. Tamara Mohammed, Dentist and Owner of Front Street Smile Dental"
             class="w-full h-full object-cover object-top"
-            width="480"
-            height="640"
-            loading="lazy"
-            decoding="async"
           />
         </div>
         <!-- Credential badge — bottom right -->
@@ -478,10 +453,10 @@
 
     <!-- Carousel: mask fades left/right edges -->
     <div style="-webkit-mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%); mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%); overflow:hidden;">
-      <div id="carouselTrack" style="display:flex; align-items:stretch; gap:1.5rem; transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);">
+      <div id="carouselTrack" style="display:flex; gap:1.5rem; transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);">
 
         <!-- Card 1 -->
-        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); aspect-ratio:1/1; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
           <div>
             <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
             <p class="text-white text-base font-light leading-relaxed">
@@ -498,7 +473,7 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); aspect-ratio:1/1; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
           <div>
             <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
             <p class="text-white text-base font-light leading-relaxed">
@@ -515,7 +490,7 @@
         </div>
 
         <!-- Card 3 (center / active) -->
-        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" id="card-active" style="width:calc(33.333% - 1rem); background:rgba(201,164,90,0.10); border:1px solid rgba(201,164,90,0.35);">
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" id="card-active" style="width:calc(33.333% - 1rem); aspect-ratio:1/1; background:rgba(201,164,90,0.10); border:1px solid rgba(201,164,90,0.35);">
           <div>
             <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
             <p class="text-white text-base font-light leading-relaxed">
@@ -532,7 +507,7 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); aspect-ratio:1/1; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
           <div>
             <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
             <p class="text-white text-base font-light leading-relaxed">
@@ -549,7 +524,7 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
+        <div class="t-card flex-none rounded-2xl p-8 flex flex-col justify-between" style="width:calc(33.333% - 1rem); aspect-ratio:1/1; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.10);">
           <div>
             <div class="text-lg tracking-wider mb-5" style="color:#c9a45a;" aria-label="5 stars">★★★★★</div>
             <p class="text-white text-base font-light leading-relaxed">
@@ -768,9 +743,9 @@
         <ul class="flex flex-col gap-3">
           <li><a href="tel:+16473513388" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">(647) 351-3388</a></li>
           <li><a href="/cdn-cgi/l/email-protection#b4dddad2dbf4d2c6dbdac0c7c0c6d1d1c0c7d9ddd8d19ad7d5" class="font-medium text-base hover:underline" style="color:#1a2b3c;"><span class="__cf_email__" data-cfemail="4e272028210e283c21203a3d3a3c2b2b3a3d2327222b602d2f">[email&#160;protected]</span></a></li>
-          <li><a href="https://maps.app.goo.gl/nJF1cCb6cpuqLqRZA" target="_blank" rel="noopener" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">363 Front St W, Toronto</a></li>
-          <li><a href="https://www.instagram.com/frontstreetsmile/" target="_blank" rel="noopener" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Instagram</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61560026218164" target="_blank" rel="noopener" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Facebook</a></li>
+          <li><a href="https://maps.app.goo.gl/nJF1cCb6cpuqLqRZA" target="_blank" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">363 Front St W, Toronto</a></li>
+          <li><a href="https://www.instagram.com/frontstreetsmile/" target="_blank" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61560026218164" target="_blank" class="text-sm" style="color:rgba(255,255,255,0.38);" onmouseover="this.style.color='#c9a45a';" onmouseout="this.style.color='rgba(255,255,255,0.38)';">Facebook</a></li>
         </ul>
       </div>
 
@@ -787,7 +762,7 @@
 <!-- ============================================================
      JAVASCRIPT — no dependency on custom CSS classes
 ============================================================ -->
-<script data-cfasync="false" async src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ---- Sticky header shadow ---- */
   const hdr = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
@@ -812,73 +787,65 @@
 
   /* ---- Testimonial Carousel ---- */
   const track = document.getElementById('carouselTrack');
-  const cards = Array.from(track.querySelectorAll('.t-card'));
-  const dots  = Array.from(document.querySelectorAll('#carouselDots button'));
+  const cards = track.querySelectorAll('.t-card');
+  const dots  = document.querySelectorAll('#carouselDots button');
   const TOTAL = cards.length;
   let curr = 0;
-  const GAP = 24; // 1.5rem gap in px
 
   function isMobile() { return window.innerWidth < 1024; }
-  function getSteps()  { return isMobile() ? TOTAL - 1 : TOTAL - 3; }
+
+  function getSteps() { return isMobile() ? TOTAL - 1 : TOTAL - 3; }
 
   function applyCardWidths() {
     cards.forEach(c => {
       if (isMobile()) {
-        // 88vw so the next card peeks ~6vw in from the right
-        c.style.width = Math.round(window.innerWidth * 0.88) + 'px';
+        // ~82vw so adjacent cards peek in from sides
+        c.style.width = Math.round(window.innerWidth * 0.82) + 'px';
+        c.style.aspectRatio = '1 / 1';
       } else {
-        // Resolve pixel width from the actual track container width
-        // track parent is the mask div; its parent is the max-w-6xl div
-        const containerW = track.parentElement.offsetWidth;
-        const cardPx = Math.floor((containerW - GAP * 2) / 3);
-        c.style.width = cardPx + 'px';
+        c.style.width = 'calc(33.333% - 1rem)';
+        c.style.aspectRatio = '1 / 1';
       }
-      c.style.aspectRatio = '';
     });
   }
 
-  // Always read offsetWidth — this forces a synchronous reflow so width is always current
-  function cardStepPx() {
-    return cards[0].offsetWidth + GAP;
+  function cardW() {
+    return cards[0].getBoundingClientRect().width + 24;
   }
 
-  function updateCarousel(animate) {
-    curr = Math.max(0, Math.min(curr, getSteps()));
-
-    // On mobile: nudge right so active card is centred (half the peek)
-    const offset = isMobile() ? Math.round(window.innerWidth * 0.06) : 0;
-
-    if (animate === false) {
-      track.style.transition = 'none';
-    } else {
-      track.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1)';
-    }
-    track.style.transform = `translateX(${offset}px) translateX(-${curr * cardStepPx()}px)`;
+  function updateCarousel() {
+    curr = Math.min(curr, getSteps());
+    // On mobile: centre the active card by offsetting half the peek amount (~9vw)
+    const offset = isMobile() ? Math.round(window.innerWidth * 0.09) : 0;
+    track.style.transform = `translateX(${offset}px) translateX(-${curr * cardW()}px)`;
 
     cards.forEach((c, i) => {
+      // Desktop: middle of 3. Mobile: exactly current.
       const active = isMobile() ? i === curr : i === curr + 1;
       c.style.background  = active ? 'rgba(201,164,90,0.10)' : 'rgba(255,255,255,0.07)';
       c.style.borderColor = active ? 'rgba(201,164,90,0.35)' : 'rgba(255,255,255,0.10)';
-      c.style.opacity     = (isMobile() && !active) ? '0.55' : '1';
+      // Slightly dim non-active on mobile
+      c.style.opacity = (isMobile() && !active) ? '0.55' : '1';
     });
 
     dots.forEach((d, i) => {
       const inRange = i <= getSteps();
       d.style.display    = inRange ? 'block' : 'none';
-      d.style.width      = i === curr ? '1.5rem' : '0.5rem';
-      d.style.background = i === curr ? '#c9a45a' : 'rgba(255,255,255,0.2)';
+      const active       = i === curr;
+      d.style.width      = active ? '1.5rem' : '0.5rem';
+      d.style.background = active ? '#c9a45a' : 'rgba(255,255,255,0.2)';
     });
   }
 
   function init() {
     applyCardWidths();
-    // offsetWidth access here forces layout to complete so cardStepPx() is accurate
-    void cards[0].offsetWidth;
     curr = Math.min(curr, getSteps());
-    updateCarousel(false);
-    // Re-enable animation on next frame
+    track.style.transition = 'none';
+    const offset = isMobile() ? Math.round(window.innerWidth * 0.09) : 0;
+    track.style.transform  = `translateX(${offset}px) translateX(-${curr * cardW()}px)`;
     requestAnimationFrame(() => {
       track.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1)';
+      updateCarousel();
     });
   }
 

@@ -51,6 +51,25 @@
     never gets revealed because IntersectionObserver doesn't fire in the iframe.
     All animation is handled purely via JS className toggling below.
   -->
+  <!-- Critical: size-adjust fallback to minimize reflow when web fonts swap in -->
+  <style>
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 400 600;
+      font-display: swap;
+      src: local('Georgia');
+      size-adjust: 105%;
+    }
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 300 600;
+      font-display: swap;
+      src: local('Arial');
+      size-adjust: 96%;
+    }
+  </style>
 </head>
 <body class="bg-white font-body" style="font-family:'DM Sans',sans-serif; -webkit-font-smoothing:antialiased;color:#1a2b3c">
 
@@ -262,7 +281,7 @@
       <div>
         <p class="text-xs font-semibold tracking-[0.14em] uppercase mb-4" style="color:#c9a45a;">Why Choose Us</p>
         <h2 class="font-semibold leading-tight mb-4" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(32px,4vw,48px);color:#1a2b3c">
-          Dentistry designed<br>around <span style="font-style:italic;font-size:1.08em;">your comfort.</span>
+          Dentistry designed<br>around <span style="font-style:italic;">your comfort.</span>
         </h2>
         <div class="mb-12" style="width:44px;height:2.5px;background:#c9a45a;"></div>
 
